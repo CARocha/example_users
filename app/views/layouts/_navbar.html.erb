@@ -1,0 +1,27 @@
+<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+  <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+  <div class="title-bar-title">Menu</div>
+</div>
+
+<div class="top-bar" id="responsive-menu">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Anuncios</li>
+      <li><a href="/">Home</a></li>
+      <li><a href="#0">Two</a></li>
+      <li><a href="#0">Three</a></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+    <% if account_signed_in? %>
+      <li><a href="#"><%= current_account.email %></a></li>
+      <li><%= link_to 'Edit profile', edit_account_registration_path, :class => 'navbar-link' %></li>
+      <li><%= link_to "Logout", destroy_account_session_path, method: :delete, :class => 'navbar-link' %></li>
+    <% else %>
+      <li><%= link_to 'Sign Up', new_account_registration_path, :class => 'navbar-link' %></li>
+      <li><%= link_to 'Log In', account_session_path, :class => 'navbar-link' %></li>
+    <% end %>
+    </ul>
+  </div>
+</div>

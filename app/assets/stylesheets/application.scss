@@ -1,0 +1,69 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+ *= link application.js
+ *= require foundation
+ */
+ @import "foundation_and_overrides";
+ $alert-box-opacity: 0.2;
+
+ .alert-box {
+   padding-right: 3.25rem;
+   width: 100%;
+
+   &.callout {
+     color: $black;
+     font-weight: bold;
+   }
+
+   &.alert {
+     border: 3px solid $alert-color;
+     border-radius: 5px;
+     background-color:rgba($alert-color, $alert-box-opacity);
+   }
+
+   &.warning {
+     border: 3px solid $warning-color;
+     border-radius: 5px;
+     background-color:rgba($warning-color, $alert-box-opacity);
+   }
+
+   &.success {
+     border: 3px solid $success-color;
+     border-radius: 5px;
+     background-color:rgba($success-color, $alert-box-opacity);
+   }
+
+   &.info {
+     border: 3px solid $primary-color;
+     border-radius: 5px;
+     background-color:rgba($primary-color, $alert-box-opacity);
+   }
+
+   i {
+     border: 2px solid $white;
+     border-radius: 50%;
+     padding: .3em .325em;
+     margin-right: 0.5rem;
+   }
+
+   .close-button {
+     color: rgba($white, 0.5);
+     font-size: 2rem;
+     @include vertical-center;
+     right: 1rem;
+     font-weight: bold;
+   }
+ }
