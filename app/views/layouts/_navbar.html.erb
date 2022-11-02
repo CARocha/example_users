@@ -8,8 +8,10 @@
     <ul class="menu">
       <li class="menu-text">Anuncios</li>
       <li><a href="/">Home</a></li>
-      <li><a href="#0">Two</a></li>
-      <li><a href="#0">Three</a></li>
+      <% if account_signed_in? %>
+        <li> <%= link_to 'Create Announcement', new_announcement_path %></li>
+      <% end %>
+      <li><a href="#0">About</a></li>
     </ul>
   </div>
   <div class="top-bar-right">
@@ -24,7 +26,7 @@
         <ul class="menu vertical">
           <li><%= link_to 'Edit profile', edit_account_registration_path, :class => 'navbar-link' %></li>
           <li><%= link_to "Logout", destroy_account_session_path, method: :delete, :class => 'navbar-link' %></li>
-          <li><a href="#">Three</a></li>
+          <li><%= link_to 'My announcements',  announcements_path, :class => 'navbar-link' %></li>
         </ul>
     </li>
     <% else %>

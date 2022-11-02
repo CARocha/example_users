@@ -1,9 +1,9 @@
 class AnnouncementsController < ApplicationController
-  before_action :set_announcement, only: %i[ show edit update destroy ]
+  before_action :authenticate_account!, :set_announcement, only: %i[ show edit update destroy ]
 
   # GET /announcements or /announcements.json
   def index
-    @announcements = Announcement.all
+    @announcements = current_account.announcements
   end
 
   # GET /announcements/1 or /announcements/1.json
