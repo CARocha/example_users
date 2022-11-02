@@ -15,7 +15,11 @@
   <div class="top-bar-right">
     <ul class="menu">
     <% if account_signed_in? %>
-      <li><a href="#"><%= current_account.email %></a></li>
+      <li><a href="#"> <% if current_account.first_name? %>
+        <%= current_account.first_name %> <%= current_account.last_name %></a></li>
+        <% else %>
+          <%= current_account.email %></a></li>
+        <% end %>
       <li><%= link_to 'Edit profile', edit_account_registration_path, :class => 'navbar-link' %></li>
       <li><%= link_to "Logout", destroy_account_session_path, method: :delete, :class => 'navbar-link' %></li>
     <% else %>
