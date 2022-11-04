@@ -16,7 +16,13 @@
       <%= single.account.email %>
       <%end%>
     </p>
-    <p class="text-right"><a href="#"> anuncio visto! </a> </p>
+    <% if account_signed_in? %>
+      <% if current_account.id != single.account.id %>
+        <p class="text-right">
+          <%= link_to 'Marcar como visto!', seens_path(announcement_id: single.id), method: :post %>
+        </p>
+      <% end %>
+    <% end %>
   </div>
 <% end %>
 <% end %>

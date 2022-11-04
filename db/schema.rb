@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_02_024613) do
+ActiveRecord::Schema.define(version: 2022_11_03_174954) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "first_name", default: "", null: false
@@ -47,5 +47,17 @@ ActiveRecord::Schema.define(version: 2022_11_02_024613) do
     t.index ["account_id"], name: "index_announcements_on_account_id"
   end
 
+  create_table "seens", force: :cascade do |t|
+    t.integer "account_id", null: false
+    t.integer "announcement_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id", "announcement_id"], name: "index_seens_on_account_id_and_announcement_id", unique: true
+    t.index ["account_id"], name: "index_seens_on_account_id"
+    t.index ["announcement_id"], name: "index_seens_on_announcement_id"
+  end
+
   add_foreign_key "announcements", "accounts"
+  add_foreign_key "seens", "accounts"
+  add_foreign_key "seens", "announcements"
 end

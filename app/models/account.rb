@@ -5,4 +5,6 @@ class Account < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :announcements, dependent: :destroy
+  has_many :seens, dependent: :destroy
+
 end

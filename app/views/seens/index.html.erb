@@ -1,0 +1,23 @@
+<h1 class='text-center'>Seen Announcements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Content</th>
+      <th>Date Expiration</th>
+      <th>Account</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @announcements.each do |announcement| %>
+      <tr>
+        <td><%= announcement.id %></td>
+        <td><%= announcement.content %></td>
+        <td><%= announcement.date %></td>
+        <td><%= announcement.account.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
