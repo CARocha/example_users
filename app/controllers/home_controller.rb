@@ -12,4 +12,8 @@ class HomeController < ApplicationController
       @anuncios = Announcement.order(created_at: :desc)
     end
   end
+
+  def about
+    
+  end
 end
