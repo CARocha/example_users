@@ -286,7 +286,7 @@ DEPENDENCIES
   net-imap
   net-pop
   net-smtp
-  pg
+  pg (>= 1.4.4)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.3, >= 6.1.3.1)
